@@ -5,6 +5,7 @@ Este proyecto fue desarrollado con Ionic Framework y utiliza Firebase Authentica
 Además, se consumen APIs públicas para mostrar chistes y fotos aleatorias de perros y gatos.
 
 Video: https://vm.tiktok.com/ZMAWkSkka/
+
 Deploy: https://api-fun-app.web.app/login
 
 Tecnologías Utilizadas

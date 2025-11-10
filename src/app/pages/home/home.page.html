@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- ENCABEZADO DE BIENVENIDA -->
+  <div class="header-row">
+    <h2>Bienvenido</h2>
+    <ion-button class="logout-btn" (click)="logout()">Cerrar sesión</ion-button>
+  </div>
+
+  <!-- NAVEGACIÓN POR TABS -->
+  <ion-segment [(ngModel)]="selectedTab">
+    <ion-segment-button value="chistes">
+      <ion-label>Chistes</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="perros" (click)="obtenerPerros()">
+      <ion-label>Perros</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="gatos" (click)="obtenerGatos()">
+      <ion-label>Gatos</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- CONTENIDO SEGÚN LA TAB -->
+  <div [ngSwitch]="selectedTab" class="ion-padding-top">
+
+    <!-- === TAB CHISTES === -->
+    <div *ngSwitchCase="'chistes'" class="tab-content">
+      <h3>Chistes divertidos 😄</h3>
+      <ion-button expand="block" (click)="obtenerChistes()">🔄 Nuevos chistes</ion-button>
+
+      <div *ngIf="cargando" class="loading">
+        <ion-spinner name="crescent"></ion-spinner>
+        <p>Cargando chistes...</p>
+      </div>
+
+      <ion-list *ngIf="!cargando && chistes.length > 0">
+        <ion-item *ngFor="let c of chistes">
+          <ion-label>{{ c }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <!-- === TAB PERROS === -->
+    <div *ngSwitchCase="'perros'" class="tab-content">
+      <h3>Fotos de perros 🐶</h3>
+      <ion-button expand="block" (click)="obtenerPerros()">🔄 Nuevas fotos</ion-button>
+
+      <div *ngIf="cargando" class="loading">
+        <ion-spinner name="crescent"></ion-spinner>
+        <p>Cargando imágenes...</p>
+      </div>
+
+      <div class="image-gallery" *ngIf="!cargando && perros.length > 0">
+        <img *ngFor="let dog of perros" [src]="dog" alt="Perro" />
+      </div>
+    </div>
+
+    <!-- === TAB GATOS === -->
+    <div *ngSwitchCase="'gatos'" class="tab-content">
+      <h3>Fotos de gatos 🐱</h3>
+      <ion-button expand="block" (click)="obtenerGatos()">🔄 Nuevas fotos</ion-button>
+
+      <div *ngIf="cargando" class="loading">
+        <ion-spinner name="crescent"></ion-spinner>
+        <p>Cargando imágenes...</p>
+      </div>
+
+      <div class="image-gallery" *ngIf="!cargando && gatos.length > 0">
+        <img *ngFor="let cat of gatos" [src]="cat" alt="Gato" />
+      </div>
+    </div>
+
+    <div *ngSwitchDefault class="tab-content">
+      <p>Selecciona una pestaña para comenzar.</p>
+    </div>
+  </div>
+</ion-content>

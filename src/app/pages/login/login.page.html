@@ -1,0 +1,37 @@
+<ion-content class="ion-padding ion-text-center" fullscreen>
+  <div class="login-container">
+
+    <h1>Iniciar sesión / Registrar</h1>
+
+    <!-- Input correo -->
+    <ion-item lines="none">
+      <ion-input placeholder="Correo" type="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <!-- Input contraseña -->
+    <ion-item lines="none">
+      <ion-input placeholder="Contraseña" type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+
+    <!-- Botón Login -->
+    <ion-button expand="block" (click)="onLogin()" [disabled]="loading" class="login-button">
+      {{ loading ? 'Ingresando...' : 'Entrar' }}
+    </ion-button>
+
+    <!-- Botón Registro -->
+    <ion-button expand="block" color="secondary" (click)="onRegister()" [disabled]="loading">
+      {{ loading ? 'Registrando...' : 'Registrar' }}
+    </ion-button>
+
+    <!-- Enlace recuperación de contraseña -->
+    <ion-button expand="block" fill="clear" color="tertiary" (click)="onResetPassword()" [disabled]="loading">
+      ¿Olvidaste tu contraseña?
+    </ion-button>
+
+    <!-- Mensaje opcional para el usuario -->
+    <p class="info-text">
+      Al registrarte recibirás un correo para verificar tu cuenta antes de iniciar sesión.
+    </p>
+
+  </div>
+</ion-content>

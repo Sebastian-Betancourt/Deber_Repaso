@@ -1,0 +1,208 @@
+/* =========================
+   Variables de colores y tipografía
+========================= */
+$color-primary: #3b82f6;        // Azul principal
+$color-primary-dark: #2563eb;
+$color-secondary: #f3f4f6;      // Gris claro
+$color-gray-dark: #1f2937;
+$color-gray-medium: #6b7280;
+$color-gray-light: #e5e7eb;
+$color-white: #ffffff;
+$color-black: #111827;
+
+$radius-card: 1rem;
+$radius-input: 0.75rem;
+$transition-fast: 0.2s;
+$transition-medium: 0.3s;
+$font-base: 'Inter', sans-serif;
+
+/* =========================
+   Contenedor Principal
+========================= */
+.login-container {
+  font-family: $font-base;
+  max-width: 420px;
+  width: 90%;
+  margin: 3rem auto;
+  background-color: $color-white;
+  border-radius: $radius-card;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  animation: fadeInUp 0.5s ease-in-out;
+  transition: background-color $transition-medium, color $transition-medium;
+}
+
+/* =========================
+   Título
+========================= */
+.login-container h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: $color-gray-dark;
+}
+
+/* =========================
+   Inputs
+========================= */
+.login-container ion-item {
+  border: 1px solid $color-gray-light;
+  border-radius: $radius-input;
+  transition: border-color $transition-medium, box-shadow $transition-medium, background-color $transition-medium;
+
+  &:focus-within {
+    border-color: $color-primary;
+    box-shadow: 0 0 8px rgba($color-primary, 0.3);
+  }
+}
+
+.login-container ion-input {
+  padding: 0.75rem;
+  color: $color-gray-dark;
+
+  &::placeholder {
+    color: $color-gray-medium;
+  }
+}
+
+/* =========================
+   Botones
+========================= */
+.login-button {
+  background-color: $color-primary;
+  color: $color-white;
+  font-weight: 600;
+  border-radius: $radius-input;
+  box-shadow: 0 6px 12px rgba($color-primary, 0.3);
+  transition: background-color $transition-medium, transform $transition-fast;
+
+  &:hover {
+    background-color: $color-primary-dark;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.login-container ion-button[color="secondary"] {
+  background-color: $color-secondary;
+  color: $color-gray-dark;
+  font-weight: 600;
+  border-radius: $radius-input;
+  transition: background-color $transition-medium, transform $transition-fast;
+
+  &:hover {
+    background-color: $color-gray-light;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.login-container ion-button[color="tertiary"] {
+  color: $color-primary;
+  font-weight: 500;
+  transition: text-decoration $transition-fast;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* =========================
+   Mensaje informativo
+========================= */
+.login-container .info-text {
+  text-align: center;
+  color: $color-gray-medium;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+/* =========================
+   Animación Fade-In
+========================= */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   Responsividad
+========================= */
+@media (max-width: 480px) {
+  .login-container {
+    padding: 2rem 1.5rem;
+  }
+
+  .login-container h1 {
+    font-size: 1.75rem;
+  }
+}
+
+/* =========================
+   Modo oscuro automático
+========================= */
+@media (prefers-color-scheme: dark) {
+  .login-container {
+    background-color: $color-gray-dark;
+    color: $color-white;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .login-container h1 {
+    color: $color-white;
+  }
+
+  .login-container ion-item {
+    border-color: $color-gray-medium;
+    background-color: darken($color-gray-dark, 5%);
+  }
+
+  .login-container ion-input {
+    color: $color-white;
+
+    &::placeholder {
+      color: lighten($color-gray-medium, 20%);
+    }
+  }
+
+  .login-container ion-button[color="secondary"] {
+    background-color: lighten($color-gray-dark, 10%);
+    color: $color-white;
+
+    &:hover {
+      background-color: lighten($color-gray-dark, 15%);
+    }
+  }
+
+  .login-button {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &:hover {
+      background-color: $color-primary-dark;
+    }
+  }
+
+  .login-container ion-button[color="tertiary"] {
+    color: $color-primary;
+  }
+
+  .login-container .info-text {
+    color: lighten($color-gray-medium, 20%);
+  }
+}

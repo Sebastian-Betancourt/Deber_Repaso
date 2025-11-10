@@ -1,0 +1,7 @@
+{
+  "name": "milogin",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,6 +1,11 @@
 Proyecto Ionic + Firebase + APIs Públicas
+
+
 Este proyecto fue desarrollado con Ionic Framework y utiliza Firebase Authentication para el inicio de sesión y registro de usuarios.
 Además, se consumen APIs públicas para mostrar chistes y fotos aleatorias de perros y gatos.
+
+Video: https://vm.tiktok.com/ZMAWkSkka/
+Deploy: https://api-fun-app.web.app/login
 
 Tecnologías Utilizadas
 Ionic Framework (Angular)
